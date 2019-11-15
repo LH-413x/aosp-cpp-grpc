@@ -1,0 +1,25 @@
+cc_binary{
+	name: "grcp-test-server",
+	include_dirs: [
+		"external/grpc-grpc/include",
+		"grpc-test/grpc-gen",	
+		"external/protobuf/src",
+	],
+	cflags: [
+		"-Wno-error",
+	],
+	srcs:[
+		"greeter_server.cc",
+		"grpc-gen/helloworld.grpc.pb.cc",
+		"grpc-gen/helloworld.pb.cc"
+	],
+	static_libs: [
+		"libprotobuf-cpp-lite",
+		"libgrpc++_codegen_base_src",
+		"liblog",
+		"libgrpc++_unsecure",
+		"libgrpc++_base",
+		"libgrpc_base_c",
+		"libprotobuf-cpp-full",
+	],
+}
